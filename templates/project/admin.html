@@ -1,0 +1,57 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">AdminSite</h1>
+    <p class="text-center">Tenha todas as funções de admin em 1 clique</p>
+    <hr class="divider">
+
+    <a href="{% url 'tutorials:create-tutorials' %}"style="text-decoration: none; color: black">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1429&q=80" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">Adicionar novo tutorial</h5>
+                        <p class="card-text">Crie tutoriais para que nossos queridos velhinhos possam ter mais segurança no final da jornada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="{% url 'aplicacao:create-aplicacao' %}"style="text-decoration: none; color: black">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1429&q=80" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">Adicionar nova aplicação</h5>
+                        <p class="card-text">As tecnologias não param. Adicione novas aplicações para abranger cada vez mais desse novo mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="{% url 'users:create-user' %}"style="text-decoration: none; color: black">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1429&q=80" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Adicionar novo usuário</h5>
+                        <p class="card-text">Cadastre novas pessoas e espalhe nossa paltaforma para quem você conhecer. É apenas clicar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock content %}

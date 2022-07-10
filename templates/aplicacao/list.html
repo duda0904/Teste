@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container p-3">
+    <h2 class="title text-center">Lista de aplicações</h2>
+
+    {% for tutorial in tutorials %}
+    <div class="card w-50 m-3">
+        <div class="card-body">
+            <h5 class="">{{tutorial.conteudo | truncatewords:10 | safe }}</h5>
+            <a class="btn btn-primary" href="{% url 'tutorials:list-unique-tutorials' tutorials_id=tutorial.id %}">
+                Acessar
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

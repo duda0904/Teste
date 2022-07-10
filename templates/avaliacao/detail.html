@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container p-3">
+    <h1 class="text-center">{{avaliacao.avaliacao}}</h1>
+
+    <p> {{avaliacao.text | safe }} </p>
+    
+    <a href="/tutorials/edit/{{tutorials.id}}/edit-avaliacao/">
+
+        <button class="btn btn-success">Editar avaliacao</button>
+    </a>
+    <a href="/tutorials/delete/{{tutorials.id}}/delete-avaliacao/">
+
+        <button class="btn btn-danger">Apagar avaliacao</button>
+    </a>
+    
+</div>  
+{% endblock %}

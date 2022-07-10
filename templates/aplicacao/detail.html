@@ -1,0 +1,52 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container p-3">
+    <h1 class="text-center">{{tutorials.titulo}}</h1>
+    <div class="container p-3">
+
+        <hr class="hr" />
+    </div>
+    <p> {{tutorials.conteudo | safe }} </p>
+
+    <a href="/tutorials/edit/{{tutorials.id}}">
+
+        <button class="btn btn-success">Editar tutorial</button>
+    </a>
+    <a href="/tutorials/delete/{{tutorials.id}}">
+
+        <button class="btn btn-danger">Apagar tutorial</button>
+    </a>
+
+    <br />
+    <br>
+    {% if avaliacao %}
+    <div class="card text-center">
+        <div class="card-header bg-secondary text-white">
+            <h2>
+                Avaliação
+            </h2>
+        </div>
+        <div class="card-body">
+            <p>Descrição da avaliação: {{avaliacao.text}} </p>
+            <p>Nota da avaliação: {{avaliacao.avaliacao}} </p>
+
+
+            <a href="{% url 'tutorials:edit-avaliacao' tutorials_id=tutorials.id %}">
+                <button class="btn btn-success">Editar avaliação</button>
+            </a>
+            <a href="{% url 'tutorials:delete-avaliacao' tutorials_id=tutorials.id %}">
+                <button class="btn btn-danger">Apagar avaliação</button>
+            </a>
+            {% else %}
+
+            <a href="{% url 'tutorials:create-avaliacao' tutorials_id=tutorials.id %}">
+
+                <button>Avaliar tutorial</button>
+            </a>
+            {% endif %}
+        </div>
+
+        <br>
+        <br>
+        {% endblock %}

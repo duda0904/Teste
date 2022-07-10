@@ -1,0 +1,71 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container p-3">
+    <h1 class="text-center">{{tutorials.titulo}}</h1>
+    <div class="container p-3">
+
+        <hr class="hr" />
+    </div>
+    <p> {{tutorials.conteudo | safe }} </p>
+
+    <a href="/tutorials/edit/{{tutorials.id}}">
+
+        <button class="btn btn-success">Editar tutorial</button>
+    </a>
+    <a href="/tutorials/delete/{{tutorials.id}}">
+
+        <button class="btn btn-danger">Apagar tutorial</button>
+    </a>
+
+    <br />
+    <br>
+    <hr class="hr">
+    {% if avaliacao %}
+    <div class="card text-center">
+        <div class="card-header bg-secondary text-white">
+            <h2>
+                Avaliação
+            </h2>
+        </div>
+        <div class="card-body">
+            <p>Descrição da avaliação: {{avaliacao.text}} </p>
+            <p>Nota da avaliação: {{avaliacao.avaliacao}} </p>
+
+
+            <a href="{% url 'tutorials:edit-avaliacao' tutorials_id=tutorials.id %}">
+                <button class="btn btn-success">Editar avaliação</button>
+            </a>
+            <a href="{% url 'tutorials:delete-avaliacao' tutorials_id=tutorials.id %}">
+                <button class="btn btn-danger">Apagar avaliação</button>
+            </a>
+            {% else %}
+
+
+            <div class="container" style="margin: 0 auto;">
+
+                <h3 class="text-center m-3">Escreva uma avaliação</h3>
+                <center>
+                    <a href="{% url 'tutorials:create-avaliacao' tutorials_id=tutorials.id %}"
+                        style="text-decoration:none; ">
+                        <div class="d-grid gap-2 w-50 ">
+
+                            <button class="btn btn-outline-info btn-large">Avaliar tutorial</button>
+                        </div>
+                    </a>
+
+                </center>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <br>
+    {% if avaliacao_geral %}
+    <h5 class="text-center">Avaliações de outros usuários</h5>
+    {% for apl in avaliacao_geral %}
+    {{apl.nome}}
+    {% endfor %}
+    {% endif %}
+
+    {% endblock %}

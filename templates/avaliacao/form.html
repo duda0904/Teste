@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+<div class="container p-3 ">
+
+    <h1 class="text-center">Formulário de tutorial</h1>
+    <form method="POST" role="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+     
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{form.errors}}
+      </div>
+
+    {% endif %}
+</div>
+
+
+{% endblock content %}
